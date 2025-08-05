@@ -1,0 +1,17 @@
+.list {
+    list-style: none;
+    padding: 0;
+}
+
+.item {
+    margin-bottom: 10px;
+}
+
+.link {
+    text-decoration: none;
+    color: #0077cc;
+}
+
+.link:hover {
+    text-decoration: underline;
+}
