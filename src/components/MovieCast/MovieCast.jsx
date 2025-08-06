@@ -28,7 +28,7 @@ const MovieCast = () => {
               className={styles.image}
             />
           )}
-          <div>
+          <div className={styles.info}>
             <p>
               <strong>{name}</strong>
             </p>

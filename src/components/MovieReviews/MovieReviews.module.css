@@ -5,6 +5,7 @@
 
 .item {
     margin-bottom: 20px;
-    border-bottom: 1px solid #ccc;
-    padding-bottom: 10px;
+    padding: 10px;
+    background-color: #efefef;
+    border-radius: 12px;
 }

@@ -7,3 +7,57 @@
     display: flex;
     gap: 10px;
 }
+
+.links a {
+    display: inline-block;
+    background-color: #2196f3;
+    color: #fff;
+    padding: 4px 8px;
+    border-radius: 12px;
+}
+
+.links a:hover {
+    color: black;
+}
+
+.genres {
+    margin-top: 1rem;
+}
+
+.genreBadge {
+    display: inline-block;
+    background-color: #fff;
+    color: #333;
+    padding: 4px 8px;
+    margin: 4px 4px 0 0;
+    border-radius: 12px;
+    font-size: 0.875rem;
+    font-weight: 500;
+}
+
+.movie {
+    display: flex;
+    gap: 10px;
+    background-color: #efefef;
+    color: #333;
+    border-radius: 12px;
+    font-weight: 500;
+}
+
+.poster {
+    padding: 0px;
+    margin: 0px;
+}
+
+.poster img {
+    border-radius: 12px;
+}
+
+.info {
+    padding: 4px 4px;
+    border-radius: 12px;
+}
+
+.info span {
+    font-weight: 700;
+}

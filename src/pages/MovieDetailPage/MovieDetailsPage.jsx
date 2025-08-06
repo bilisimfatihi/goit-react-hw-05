@@ -21,14 +21,36 @@ const MovieDetailsPage = () => {
   return (
     <main className={styles.main}>
       <Link to={backLinkRef.current}>Go back</Link>
-      <div>
-        <h2>{movie.title}</h2>
-        <p>{movie.overview}</p>
-        <img
-          src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
-          alt={movie.title}
-          width={250}
-        />
+      <div className={styles.movie}>
+        <div className={styles.poster}>
+          <img
+            src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
+            alt={movie.title}
+            width={250}
+          />
+        </div>
+        <div className={styles.info}>
+          <h2>{movie.title}</h2>
+          <p>{movie.overview}</p>
+          <p>
+            <span>User Score : </span>
+            {movie.vote_average}
+          </p>
+          <p>
+            <span>Release Year: </span>
+            {movie.release_date
+              ? new Date(movie.release_date).getFullYear()
+              : "Unknown"}
+          </p>
+
+          <p className={styles.genres}>
+            {movie.genres?.map((genre) => (
+              <span key={genre.id} className={styles.genreBadge}>
+                {genre.name}
+              </span>
+            ))}
+          </p>
+        </div>
       </div>
 
       <div className={styles.links}>
