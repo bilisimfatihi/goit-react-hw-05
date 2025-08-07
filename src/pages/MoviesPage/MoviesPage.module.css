@@ -15,3 +15,9 @@ input {
 button {
     border: 1px solid #ccc;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

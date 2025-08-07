@@ -22,3 +22,9 @@
 .info {
     padding: 10px;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}

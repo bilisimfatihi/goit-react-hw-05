@@ -3,6 +3,7 @@ import { lazy, Suspense } from "react";
 import Navigation from "./components/Navigation/Navigation";
 
 import "./App.css";
+
 const MoviesPage = lazy(() => import("./pages/MoviesPage/MoviesPage"));
 const MovieDetailsPage = lazy(() =>
   import("./pages/MovieDetailPage/MovieDetailsPage")

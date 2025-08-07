@@ -6,16 +6,30 @@ import styles from "./MovieCast.module.css";
 const MovieCast = () => {
   const { movieId } = useParams();
   const [cast, setCast] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    getMovieCredits(movieId)
-      .then(setCast)
-      .catch((err) => setError("Oyuncu bilgileri alınamadı"));
+    const fetchCast = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const data = await getMovieCredits(movieId);
+        setCast(Array.isArray(data) ? data : []);
+      } catch (err) {
+        setError("Oyuncu bilgileri alınırken hata oluştu.");
+        console.error("Oyuncu bilgileri alınamadı:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchCast();
   }, [movieId]);
 
-  if (error) return <p>{error}</p>;
-  if (!cast.length) return <p>Oyuncu bilgisi bulunamadı.</p>;
+  if (isLoading) return <p>Yükleniyor...</p>;
+  if (error) return <p className={styles.error}>{error}</p>;
+  if (cast.length === 0) return <p>Oyuncu bilgisi bulunamadı.</p>;
 
   return (
     <ul className={styles.list}>

@@ -9,14 +9,30 @@ const MovieDetailsPage = () => {
   const backLinkRef = useRef(location.state?.from || "/movies");
 
   const [movie, setMovie] = useState(null);
+  const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
-    getMovieDetails(movieId)
-      .then(setMovie)
-      .catch((err) => console.error("Detay alınamadı:", err));
+    const fetchMovie = async () => {
+      setIsLoading(true);
+      setError(null);
+      try {
+        const data = await getMovieDetails(movieId);
+        setMovie(data);
+      } catch (err) {
+        setError("Film detayları yüklenirken hata oluştu.");
+        console.error("Detay alınamadı:", err);
+      } finally {
+        setIsLoading(false);
+      }
+    };
+
+    fetchMovie();
   }, [movieId]);
 
-  if (!movie) return <p>Loading...</p>;
+  if (isLoading) return <p>Yükleniyor...</p>;
+  if (error) return <p className={styles.error}>{error}</p>;
+  if (!movie) return null;
 
   return (
     <main className={styles.main}>

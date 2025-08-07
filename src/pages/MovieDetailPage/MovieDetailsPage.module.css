@@ -61,3 +61,9 @@
 .info span {
     font-weight: 700;
 }
+
+.error {
+    color: red;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
